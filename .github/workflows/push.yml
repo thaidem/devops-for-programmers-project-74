@@ -30,4 +30,4 @@ jobs:
           context: .
           file: Dockerfile.production
           push: true
-          tags: user/repo:latest
+          tags: ${{ env.APP_IMAGE_NAME }}:latest
