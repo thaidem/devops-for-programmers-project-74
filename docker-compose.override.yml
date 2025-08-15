@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8080"
+
+    volumes:
+      - "./app:/app"
+    command: make dev
+#    environment:
+#      - NODE_ENV=development

@@ -1,0 +1,33 @@
+name: push
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CI: true
+  APP_IMAGE_NAME: dementy/devops-for-programmers-project-74
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: run tests
+        run: make ci
+
+      - name: login in dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build app
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile.production
+          push: true
+          tags: ${{ env.APP_IMAGE_NAME }}
