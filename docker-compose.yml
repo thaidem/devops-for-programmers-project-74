@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.production
     image: dementy/devops-for-programmers-project-74
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+#      POSTGRES_HOST_AUTH_METHOD: trust
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       DATABASE_NAME: ${DATABASE_NAME}
@@ -19,7 +19,7 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+ #     POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: ${DATABASE_NAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_USER: ${DATABASE_USERNAME}
