@@ -27,3 +27,6 @@ push:
 
 up-development:
 	docker run -p 8090:8080 -e NODE_ENV=development dementy/devops-for-programmers-project-74 make dev
+
+clear:
+	docker system prune -a
